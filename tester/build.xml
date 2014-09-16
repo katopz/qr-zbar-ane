@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+  ~ =BEGIN MIT LICENSE
+  ~ 
+  ~  Copyright (c) 2014 Author and Contributors
+  ~ 
+  ~  Permission is hereby granted, free of charge, to any person obtaining a copy
+  ~  of this software and associated documentation files (the "Software"), to deal
+  ~  in the Software without restriction, including without limitation the rights
+  ~  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+  ~  copies of the Software, and to permit persons to whom the Software is
+  ~  furnished to do so, subject to the following conditions:
+  ~ 
+  ~  The above copyright notice and this permission notice shall be included in
+  ~  all copies or substantial portions of the Software.
+  ~ 
+  ~  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  ~ IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  ~  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+  ~  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  ~  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+  ~  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+  ~  THE SOFTWARE.
+  ~ 
+  ~ =END MIT LICENSE
+-->
+<project name="ant.project" default="build" basedir=".">
+    <!-- @author: Andras Csizmadia -->
+    <description>Apache Ant Build Project</description>
+    <!-- ################################################################### -->
+    <!-- ########################## SETTINGS ############################### -->
+    <!-- ################################################################### -->
+    <property environment="env" />    
+    <condition property="isMac"><os family="mac" /></condition>
+    <property name="build.dir" value="${basedir}/build" />
+    <property name="bin.dir" value="${basedir}/bin" />
+    <property name="publish.dir" value="${basedir}/publish" />
+    <!-- ################################################################### -->
+    <!-- ########################## TARGETS ################################ -->
+    <!-- ################################################################### -->
+    <!-- CLEAN -->    
+    <target name="clean" description="Clean the project"> 
+        <delete dir="${build.dir}" includeEmptyDirs="true" failonerror="false"/>
+        <delete dir="${bin.dir}" includeEmptyDirs="true" failonerror="false"/>
+        <delete dir="${publish.dir}" includeEmptyDirs="true" failonerror="false"/>
+    </target>
+    <!-- INIT -->    
+    <target name="init" description="Init the project">   
+        <mkdir dir="${build.dir}" />       
+        <mkdir dir="${bin.dir}" />         
+        <mkdir dir="${bin.dir}/icons" />     
+        <mkdir dir="${publish.dir}" />
+        <copy todir="${bin.dir}">
+          <fileset file="src/main/resources/Example-app.xml"/>
+        </copy>
+        <copy todir="${bin.dir}/icons">
+          <fileset dir="src/main/resources/icons"/>
+        </copy>
+    </target>  
+    <!-- BUILD -->    
+    <target name="build" depends="clean,init,swc,apk,ipa" description="Builds the project"/>
+    <!-- SWC -->     
+    <target name="swc" description="Builds the SWF package">     
+        <java classname="com.adobe.flash.compiler.clients.MXMLC" fork="true" failonerror="true" dir="${basedir}" maxmemory="1024m">
+            <classpath>
+               <pathelement location="${env.AIR_HOME}/lib/compiler.jar"/>
+            </classpath>
+            <arg line="-debug=true" />
+            <arg line="-target-player=15.0" />
+            <arg line="-swf-version=26" />
+            <arg line="-load-config=${env.AIR_HOME}/frameworks/air-config.xml" />
+            <arg line="-load-config=${basedir}/.flexConfig.xml" />
+            <arg line="-output=${bin.dir}/Example.swf" />
+            <arg line="src/main/actionscript/Example.as" />
+        </java>
+    </target>
+    <!-- APK -->     
+    <target name="apk" description="Builds the APK package">     
+        <java jar="${env.AIR_HOME}/lib/adt.jar" fork="true" failonerror="true" dir="${bin.dir}" maxmemory="1024m">
+            <arg value="-package" />
+            <arg value="-target" />
+            <arg value="apk-captive-runtime" />
+            <arg value="-keystore" />
+            <arg value="${basedir}/src/main/resources/qrzbar.p12" />
+            <arg value="-storetype" />
+            <arg value="pkcs12" />
+            <arg value="-storepass" />
+            <arg value="qrzbar" />
+            <arg value="Example" />
+            <arg value="Example-app.xml" />
+            <arg value="Example.swf" />
+            <arg value="-C" />
+            <arg value="${bin.dir}" />
+            <arg value="icons" />
+            <arg value="-extdir" />
+            <arg value="${basedir}/../publish" />
+        </java>
+    </target>
+    <!-- IPA -->     
+    <target name="ipa" description="Builds the IPA package">     
+        <java jar="${env.AIR_HOME}/lib/adt.jar" fork="true" failonerror="true" dir="${bin.dir}" maxmemory="1024m">
+            <arg value="-package" />
+            <arg value="-target" />
+            <arg value="ipa-ad-hoc" /><!--ipa-test,ipa-debug,ipa-ad-hoc,ipa-app-store-->
+            <arg value="-useLegacyAOT" />
+            <arg value="no" />
+            <arg value="-provisioning-profile" />
+            <arg value="${basedir}/src/main/resources/iOS_Team_Provisioning_Profile_Xcode_iOS_Wildcard_App_ID.mobileprovision" />
+            <arg value="-keystore" />
+            <arg value="${basedir}/src/main/resources/tcatdocmet.p12" />
+            <arg value="-storetype" />
+            <arg value="pkcs12" />
+            <arg value="-storepass" />
+            <arg value="tcatdocmet" />
+            <arg value="Example" />
+            <arg value="Example-app.xml" />
+            <arg value="Example.swf" />
+            <arg value="-C" />
+            <arg value="${bin.dir}" />
+            <arg value="icons" />
+            <arg value="-extdir" />
+            <arg value="${basedir}/../publish" />            
+            <!--arg value="-platformsdk"/>
+            <arg value="/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk"/-->
+        </java>
+    </target>
+</project>
