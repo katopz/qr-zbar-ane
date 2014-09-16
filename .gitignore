@@ -27,40 +27,26 @@
 # =END MIT LICENSE
 #
 
-# Build Folders
-out/
-output/
-bin/
+# Build and Release Folders
 build/
+bin/
 publish/
-gen/
+temp/
 
-# Other Files
-.DS_Store
+# Gradle
+.gradle/
 local.properties
 
 # IntelliJ IDEA
-#
 .idea/
 *.iml
 *.ipr
 *.iws
 
-# Xcode
-#
-build/
-*.pbxuser
-!default.pbxuser
-*.mode1v3
-!default.mode1v3
-*.mode2v3
-!default.mode2v3
-*.perspectivev3
-!default.perspectivev3
-xcuserdata
-*.xccheckout
-*.moved-aside
-DerivedData
-*.hmap
-*.ipa
-*.xcuserstate
+# Native outputs
+*.o
+*.a
+*.exe
+*.dll
+*.lib
+*.def

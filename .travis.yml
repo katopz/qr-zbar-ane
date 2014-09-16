@@ -39,7 +39,7 @@ before_script:
     # Update Brew Packages
     - brew update
     # Install Brew Packages
-    - brew install ant gradle adobe-air-sdk
+    - brew install gradle adobe-air-sdk
     - "export AIR_HOME=/usr/local/opt/adobe-air-sdk/libexec"    
     # Install Google Android SDK
     - brew install android-sdk
@@ -50,4 +50,4 @@ before_script:
     
 script:
     - xctool -project NativeiOS/QRZBar.xcodeproj -scheme QRZBar build
-    - ant
+    - gradle
