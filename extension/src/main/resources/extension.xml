@@ -28,22 +28,29 @@
   <id>com.sbhave.nativeExtensions.zbar</id>
   <versionNumber>1</versionNumber>
   <platforms>
-    <platform name="iPhone-ARM">
+        <platform name="Windows-x86">
+            <applicationDeployment>
+                <nativeLibrary>ClientExtension.dll</nativeLibrary>
+                <initializer>ClientExtensionInitializer</initializer>
+                <finalizer>ClientExtensionFinalizer</finalizer>
+            </applicationDeployment>
+        </platform>      
+        <platform name="Android-ARM">
+          <applicationDeployment>
+            <nativeLibrary>ClientExtension.jar</nativeLibrary>
+            <initializer>com.sbhave.nativeExtension.QRExtension</initializer>
+            <finalizer>com.sbhave.nativeExtension.QRExtension</finalizer>
+          </applicationDeployment>
+        </platform>
+        <platform name="iPhone-ARM">
             <applicationDeployment>
                 <nativeLibrary>libQRZBar.a</nativeLibrary>
                 <initializer>QRSBHExtInitializer</initializer>
                 <finalizer>QRSBHExtFinalizer</finalizer>
             </applicationDeployment>
         </platform>
-    <platform name="Android-ARM">
-      <applicationDeployment>
-        <nativeLibrary>NativeAndroid.jar</nativeLibrary>
-        <initializer>com.sbhave.nativeExtension.QRExtension</initializer>
-        <finalizer>com.sbhave.nativeExtension.QRExtension</finalizer>
-      </applicationDeployment>
-    </platform>
-    <platform name="default">
-        <applicationDeployment/>
-    </platform>
+        <platform name="default">
+            <applicationDeployment/>
+        </platform>
   </platforms>
 </extension>

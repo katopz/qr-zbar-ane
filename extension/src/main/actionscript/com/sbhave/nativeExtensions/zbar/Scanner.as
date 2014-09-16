@@ -56,8 +56,6 @@ package com.sbhave.nativeExtensions.zbar
 		// implementing it in future wont require application code changes.
         
         public static function get isSupported():Boolean {
-			if(CONFIG::simulator)
-				return false;
 			return true; 
 		}
         

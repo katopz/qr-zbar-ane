@@ -33,7 +33,6 @@
     <target-player>15.0</target-player>     
     <swf-version>26</swf-version>
     <compiler>
-        <define append="true"><name>CONFIG::simulator</name><value>false</value></define>
         <library-path append="true">
             <path-element>../publish</path-element>      
         </library-path>
