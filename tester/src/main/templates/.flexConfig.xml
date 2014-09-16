@@ -38,8 +38,4 @@
             <path-element>../publish</path-element>      
         </library-path>
     </compiler>
-    <metadata>
-    <title>QR-ZBar-ANE-SWF</title>
-        <description>QR Code Scanner AIR Native Extension Example</description>
-    </metadata>
 </flex-config>
