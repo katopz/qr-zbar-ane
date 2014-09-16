@@ -21,4 +21,19 @@ AIR Native Extension for the [ZBar QR Code Reader Library](http://zbar.sourcefor
 
 ## Building
 
-TBD
+### Android
+
+1. cd android && ..\gradlew
+
+### iOS
+
+1. run **xctool** or **xcodebuild**
+
+### Windows
+
+1. cd library/cryptopp && build
+2. cd library && build
+
+### ANE
+
+1. run **gradle**
