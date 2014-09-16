@@ -5,7 +5,7 @@ qr-zbar-ane
 
 ## Introduction
 
-AIR Native Extension for the [ZBar QR Code Reader Library for C++](http://zbar.sourceforge.net/)
+AIR Native Extension for the [ZBar QR Code Reader Library](http://zbar.sourceforge.net/)
 
 ## Prerequisites
 
