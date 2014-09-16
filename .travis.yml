@@ -32,10 +32,8 @@ language: objective-c
 before_script:
     # Update Brew Packages
     - brew update
-    # Install Apache Ant
-    - brew install ant
-    # Install Adobe AIR SDK
-    - brew install adobe-air-sdk
+    # Install Brew Packages
+    - brew install ant gradle adobe-air-sdk
     - "export AIR_HOME=/usr/local/opt/adobe-air-sdk/libexec"    
     # Install Google Android SDK
     - brew install android-sdk
