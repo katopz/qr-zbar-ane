@@ -15,4 +15,4 @@ export AIR_HOME
 PATH=$AIR_HOME/bin:$ANT_HOME/bin:$PATH
 export PATH
 
-gradlew
+./gradlew
