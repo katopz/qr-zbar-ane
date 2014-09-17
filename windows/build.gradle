@@ -85,4 +85,7 @@ binaries.withType(SharedLibraryBinary) {
     }
 }
 
-defaultTasks 'clean', 'assemble'
+task package_all << {}
+package_all.dependsOn 'mainSharedLibrary'
+
+defaultTasks 'clean', 'package_all'
