@@ -34,10 +34,6 @@ AIR Native Extension for the [ZBar QR Code Reader Library](http://zbar.sourcefor
 
 * run **gradlew**
 
-> You can build the iOS project using: 
-
-    xcode -project ios/QRZBar.xcodeproj -scheme QRZBar build
-
 ## License
 
 * Library: [GNU](http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html)
