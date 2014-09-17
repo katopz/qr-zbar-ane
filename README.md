@@ -46,4 +46,5 @@ AIR Native Extension for the [ZBar QR Code Reader Library](http://zbar.sourcefor
 ## Notes
 
 This is a reborn version of https://github.com/saumitrabhave/qr-zbar-ane
+
 The code base is going to be completely switched off.
