@@ -47,4 +47,4 @@ before_script:
     
 script:
     - xctool -project NativeiOS/QRZBar.xcodeproj -scheme QRZBar build
-    - gradle
+    - gradlew
