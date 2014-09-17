@@ -42,3 +42,8 @@ AIR Native Extension for the [ZBar QR Code Reader Library](http://zbar.sourcefor
 
 * Library: [GNU](http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html)
 * Extension: [MIT](http://opensource.org/licenses/MIT)
+
+## Notes
+
+This is a reborn version of https://github.com/saumitrabhave/qr-zbar-ane
+The code base is going to be completely switched off.
