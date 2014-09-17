@@ -12,13 +12,13 @@ import flash.events.Event;
 import flash.media.Camera;
 import flash.text.TextField;
 
-public class Example extends Sprite {
+public class Main extends Sprite {
 
     private var s:Scanner;
 
     private var cameraLocation:String = "back"; // front or back or rear
 
-    public function Example() {
+    public function Main() {
         addEventListener(Event.ADDED_TO_STAGE, onAdded);
     }
 
