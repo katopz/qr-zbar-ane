@@ -39,13 +39,10 @@ before_script:
     # Update Brew Packages
     - brew update
     # Install Brew Packages
-    - brew install gradle adobe-air-sdk
+    - brew install gradle adobe-air-sdk android-sdk
+    # Setup SDKs
     - "export AIR_HOME=/usr/local/opt/adobe-air-sdk/libexec"    
-    # Install Google Android SDK
-    - brew install android-sdk
-    - android list sdk -a -e -u
-    - echo yes | android update sdk --filter tools,platform-tools,android-19,build-tools-19.1.0 --force --no-ui > /dev/null
-    - android list sdk -a -e -u
+    - echo yes | android update sdk --filter tools,platform-tools,android-20,build-tools-20.0.0 --force --no-ui > /dev/null
     - "export ANDROID_HOME=/usr/local/opt/android-sdk"
     
 script:
