@@ -29,6 +29,8 @@
 
 // author: Andras Csizmadia
 
+import org.apache.tools.ant.taskdefs.condition.Os
+
 repositories {
     mavenLocal()
     mavenCentral()
@@ -69,6 +71,16 @@ dependencies {
     test group: 'org.codehaus.plexus', name: 'plexus-utils', version: '3.0.17', ext: 'jar'
     antClassPath 'ant-contrib:ant-contrib:1.0b3', 'org.apache.ant:ant-junit:1.9.4'
     compile project(':android')
+}
+
+if (Os.isFamily(Os.FAMILY_WINDOWS)) {
+    project(":extension").afterEvaluate { 
+        extension -> extension.compile.dependsOn ':windows:package_all'
+    }
+} else {
+    project(":extension").afterEvaluate { 
+        extension -> extension.compile.dependsOn ':ios:package_all'
+    }
 }
 
 // add additional jars to the AntBuilder classpath for use within the imported build.
