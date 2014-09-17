@@ -12,4 +12,6 @@ export AIR_HOME
 PATH=$AIR_HOME/bin:$PATH
 export PATH
 
+xctool -project ios/QRZBar.xcodeproj -scheme QRZBar build
+
 ./gradlew

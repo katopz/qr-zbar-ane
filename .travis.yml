@@ -70,5 +70,4 @@ before_script:
     - export AIR_HOME=/usr/local/opt/adobe-air-sdk/libexec
     
 script:
-    - xctool -project NativeiOS/QRZBar.xcodeproj -scheme QRZBar build
     - ./build.sh
