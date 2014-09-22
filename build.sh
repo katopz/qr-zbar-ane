@@ -18,7 +18,7 @@ export NDK_HOME
 AIR_HOME=/usr/local/opt/adobe-air-sdk/libexec
 export AIR_HOME
 
-PATH=$AIR_HOME/bin:$PATH
+PATH=$AIR_HOME/bin:$GRADLE_HOME/bin:$PATH
 export PATH
 
 gradle
