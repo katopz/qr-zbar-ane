@@ -21,4 +21,4 @@ export AIR_HOME
 PATH=$AIR_HOME/bin:$PATH
 export PATH
 
-./gradlew
+gradle

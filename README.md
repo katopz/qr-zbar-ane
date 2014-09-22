@@ -32,7 +32,7 @@ AIR Native Extension for the [ZBar QR Code Reader Library](http://zbar.sourcefor
 
 ## Building
 
-* run **gradlew**
+* run **gradle**
 
 ## License
 
