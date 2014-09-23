@@ -1,9 +1,5 @@
-qr-zbar-ane
+qr-zbar-ane [![Build Status](https://travis-ci.org/ane-community/qr-zbar-ane.png?branch=master)](https://travis-ci.org/ane-community/qr-zbar-ane)
 ===========
-
-[![Build Status](https://travis-ci.org/ane-community/qr-zbar-ane.png?branch=master)](https://travis-ci.org/ane-community/qr-zbar-ane)
-
-## Introduction
 
 AIR Native Extension for the [ZBar QR Code Reader Library](http://zbar.sourceforge.net/)
 
