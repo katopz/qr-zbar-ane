@@ -33,4 +33,4 @@ git:
 language: objective-c
 
 script:
-    - /usr/bin/xcodebuild -project ios/ClientExtension.xcodeproj -scheme ClientExtension build
+    - /usr/bin/xcodebuild -project ios/QRZBar.xcodeproj -scheme QRZBar build
