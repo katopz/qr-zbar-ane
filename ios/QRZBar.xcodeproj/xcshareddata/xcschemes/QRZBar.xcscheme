@@ -33,7 +33,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "BFD1269014EBB7D800042533"
-               BuildableName = "QRZBarTests.octest"
+               BuildableName = "QRZBarTests.xctest"
                BlueprintName = "QRZBarTests"
                ReferencedContainer = "container:QRZBar.xcodeproj">
             </BuildableReference>
